@@ -1,0 +1,26 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: order-client
+          uri: lb://order-client
+          filters:
+            - StripPrefix=1
+          predicates:
+            - Path=/order/**
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-service.stockmgr.svc.cluster.local:8888/eureka

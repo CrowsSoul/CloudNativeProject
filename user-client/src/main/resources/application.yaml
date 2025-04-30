@@ -1,0 +1,7 @@
+server:
+  port: 8038
+spring:
+  application:
+    name: user-client
+  profiles:
+    active: k8s

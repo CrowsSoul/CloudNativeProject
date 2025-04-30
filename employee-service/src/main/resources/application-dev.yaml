@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: employee-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/restaurantms?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+eureka:
+  instance:
+    prefer-ip-address: true #如果为false可能出错找不到服务的错误
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    instance:
+      prefer-ip-address: true   #使用ip地址向eureka server进行注册
+      lease-renewal-interval-in-seconds: 5         #续约间隔时间
+      lease-expiration-duration-in-seconds: 15     #续约到期时间
+    service-url:
+      defaultZone: http://localhost:8888/eureka

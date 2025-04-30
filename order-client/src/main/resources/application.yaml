@@ -1,0 +1,7 @@
+server:
+  port: 8028
+spring:
+  application:
+    name: order-client
+  profiles:
+    active: k8s
