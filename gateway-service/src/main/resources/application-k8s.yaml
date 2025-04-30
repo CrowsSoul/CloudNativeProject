@@ -16,6 +16,18 @@ spring:
             - StripPrefix=1
           predicates:
             - Path=/order/**
+        - id: employee-client
+          uri: lb://employee-client
+          filters:
+            - StripPrefix=1
+          predicates:
+            - Path=/employee/**
+        - id: user-client
+          uri: lb://user-client
+          filters:
+            - StripPrefix=1
+          predicates:
+            - Path=/user/**
 eureka:
   instance:
     prefer-ip-address: true
